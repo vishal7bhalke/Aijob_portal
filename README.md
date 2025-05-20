@@ -1,48 +1,108 @@
 AI Job Portal — Quick Specs
-1. Setup Instructions
-Clone the repo and run npm install.
 
-Create a .env file with your OpenAI API key:
-VITE_OPENAI_API_KEY=your_key_here
+Project Setup and Info
+1. How to Setup
+What you need:
 
-Start the app with npm run dev.
+Node.js installed
 
-Open in browser at http://localhost:3000.
+MongoDB (you can use a free Atlas cluster)
 
-2. How AI is Used
-Users enter their skills, experience, and job preferences.
+Your API keys ready (like OpenAI key)
 
-The app sends this info to OpenAI’s GPT model.
+Backend:
 
-The AI suggests 3 relevant jobs with short descriptions.
+Clone the repo and go to backend folder:
 
-The prompt is simple and clear to get useful results.
 
-3. API Used
-OpenAI Chat Completion API for generating job suggestions.
+git clone https://github.com/yourusername/yourproject.git
+cd yourproject/backend
+Install packages:
 
-Optionally, use JSearch API to get real job listings.
 
-Calls are made directly from the frontend using Axios.
+npm install
 
-4. Code Structure
-React app with two main components:
 
-Aidata: Handles user input and AI job suggestions.
+Create a .env file in the backend folder and add these:
 
-JobListing: Fetches and displays real job listings.
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=someSecretKey
+VITE_OPENAI_API_KEY=your_openai_api_key
+PORT=5000
+Start the backend server:
 
-Uses React hooks (useState, useEffect) and Axios for API calls.
 
-Tailwind CSS for styling.
+npm start
+Your backend should now run at http://localhost:5000.
 
-5. Assumptions & Trade-offs
-API keys are stored in environment variables (keep them safe).
+Frontend:
 
-AI suggestions depend on how well the user fills the form.
+Move to frontend folder:
+cd ../frontend
+Install packages:
 
-No backend server needed; everything runs in the browser.
+npm install
+If needed, create .env file here with any frontend keys.
 
-API usage limits apply depending on your plan.
+Run frontend:
 
-UI is simple for demonstration; can be improved later.
+
+npm run dev
+Open http://localhost:3000 in your browser.
+
+2. How We Use AI (and How Prompts Work)
+We use OpenAI API to do things like:
+
+Understanding and generating text
+
+Answering questions
+
+Helping automate stuff
+
+Prompt tips:
+
+Be clear and short with instructions
+
+Tell AI exactly what you want it to do
+
+Give examples if needed
+
+Test and tweak your prompt to get better results
+
+Example:
+
+Summarize this text in two sentences: [your text here]
+3. API Endpoints (Basic)
+POST /api/auth/register — Register new user (send username, email, password)
+
+POST /api/auth/login — Login user (send email, password)
+
+GET /api/items — Get list of items
+
+POST /api/items — Add new item (send item data)
+
+Note: Some routes need you to send an authorization token.
+
+4. How The Code is Organized
+Backend:
+
+server.js is where the app starts
+
+MongoDB connection setup in config/db.js
+
+Routes are in routes/ folder (like auth routes)
+
+Environment variables in .env file
+
+Frontend:
+
+Made with React (using Vite)
+
+Components live in src/components/
+
+API calls handled in src/api/
+
+State handled with React state or context (your choice)
+
+Styles with CSS or any styling library you use
+
