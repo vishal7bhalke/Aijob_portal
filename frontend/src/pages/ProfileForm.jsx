@@ -24,7 +24,7 @@ function ProfileForm() {
     };
 
     try {
-      await axios.put('http://localhost:5000/api/auth/profile', updatedData);
+      await axios.put('https://aijob-portal.onrender.com/api/auth/profile', updatedData);
       alert('Profile updated successfully');
     } catch (err) {
       alert(err.response?.data?.error || 'Error updating profile');
